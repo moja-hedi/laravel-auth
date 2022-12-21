@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5733247a-c485-4203-8c8a-cf3a7d3ec81c" name="Changes" comment="first commit" />
+    <list default="true" id="5733247a-c485-4203-8c8a-cf3a7d3ec81c" name="Changes" comment="first commit">
+      <change beforePath="$PROJECT_DIR$/src/Ldap/Authentication/ApadanaLdap.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ldap/Authentication/MojaHediLdap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ldap/Constants/ApadanaApplications.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ldap/Constants/MojaHediApplications.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,7 +71,7 @@
       <workItem from="1671365289262" duration="251000" />
       <workItem from="1671365550362" duration="10000" />
       <workItem from="1671620871750" duration="1068000" />
-      <workItem from="1671622199025" duration="329000" />
+      <workItem from="1671622199025" duration="2215000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670931665033</created>
@@ -105,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671365384752</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="first commit">
+      <created>1671622532836</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671622532836</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
