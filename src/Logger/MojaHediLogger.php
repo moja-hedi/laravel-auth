@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 
 class MojaHediLogger
 {
-    const Log_separator = " ";
+    const Log_separator = "";
 
     /**
      * @param $message

@@ -132,7 +132,7 @@ class JWTGuard implements Guard
      */
     public function validate(array $credentials = [])
     {
-        return (bool) $this->attempt($credentials, false);
+        return (bool)$this->attempt($credentials, false);
     }
 
     /**
@@ -142,13 +142,15 @@ class JWTGuard implements Guard
      *
      * @return bool|string
      */
-    public function attempt(array $credentials = [], $login = true)
+    public function attempt(array $credentials = [], bool $sms = false, bool $login = true )
     {
+
+
         $this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
 
         $this->fireAttemptEvent($credentials);
 
-        if ($this->hasValidCredentials($user, $credentials)) {
+        if ($this->hasValidCredentials($user, $credentials,$sms)) {
             return $login ? $this->login($user) : true;
         }
 
@@ -156,6 +158,7 @@ class JWTGuard implements Guard
 
         return false;
     }
+
 
     /**
      * Create a token for a user.
@@ -172,6 +175,8 @@ class JWTGuard implements Guard
         return $token;
     }
 
+
+
     /**
      * Logout the user, thus invalidating the token.
      *
@@ -179,7 +184,8 @@ class JWTGuard implements Guard
      *
      * @return void
      */
-    public function logout($forceForever = false)
+    public
+    function logout($forceForever = false)
     {
         $this->requireToken()->invalidate($forceForever);
 
@@ -197,7 +203,8 @@ class JWTGuard implements Guard
      *
      * @return string
      */
-    public function refresh($forceForever = false, $resetClaims = false)
+    public
+    function refresh($forceForever = false, $resetClaims = false)
     {
         return $this->requireToken()->refresh($forceForever, $resetClaims);
     }
@@ -209,7 +216,8 @@ class JWTGuard implements Guard
      *
      * @return JWT
      */
-    public function invalidate($forceForever = false)
+    public
+    function invalidate($forceForever = false)
     {
         return $this->requireToken()->invalidate($forceForever);
     }
@@ -221,7 +229,8 @@ class JWTGuard implements Guard
      *
      * @return string|null
      */
-    public function tokenById($id)
+    public
+    function tokenById($id)
     {
         if ($user = $this->provider->retrieveById($id)) {
             return $this->jwt->fromUser($user);
@@ -233,7 +242,8 @@ class JWTGuard implements Guard
      *
      * @return bool
      */
-    public function once(array $credentials = [])
+    public
+    function once(array $credentials = [])
     {
         if ($this->validate($credentials)) {
             $this->setUser($this->lastAttempted);
@@ -251,7 +261,8 @@ class JWTGuard implements Guard
      *
      * @return bool
      */
-    public function onceUsingId($id)
+    public
+    function onceUsingId($id)
     {
         if ($user = $this->provider->retrieveById($id)) {
             $this->setUser($user);
@@ -269,7 +280,8 @@ class JWTGuard implements Guard
      *
      * @return bool
      */
-    public function byId($id)
+    public
+    function byId($id)
     {
         return $this->onceUsingId($id);
     }
@@ -279,7 +291,8 @@ class JWTGuard implements Guard
      *
      * @return $this
      */
-    public function claims(array $claims)
+    public
+    function claims(array $claims)
     {
         $this->jwt->claims($claims);
 
@@ -291,7 +304,8 @@ class JWTGuard implements Guard
      *
      * @return Payload
      */
-    public function getPayload()
+    public
+    function getPayload()
     {
         return $this->requireToken()->getPayload();
     }
@@ -301,7 +315,8 @@ class JWTGuard implements Guard
      *
      * @return Payload
      */
-    public function payload()
+    public
+    function payload()
     {
         return $this->getPayload();
     }
@@ -313,7 +328,8 @@ class JWTGuard implements Guard
      *
      * @return $this
      */
-    public function setToken($token)
+    public
+    function setToken($token)
     {
         $this->jwt->setToken($token);
 
@@ -327,7 +343,8 @@ class JWTGuard implements Guard
      *
      * @return $this
      */
-    public function setTTL($ttl)
+    public
+    function setTTL($ttl)
     {
         $this->jwt->factory()->setTTL($ttl);
 
@@ -339,7 +356,8 @@ class JWTGuard implements Guard
      *
      * @return UserProvider
      */
-    public function getProvider()
+    public
+    function getProvider()
     {
         return $this->provider;
     }
@@ -349,7 +367,8 @@ class JWTGuard implements Guard
      *
      * @return $this
      */
-    public function setProvider(UserProvider $provider)
+    public
+    function setProvider(UserProvider $provider)
     {
         $this->provider = $provider;
 
@@ -361,7 +380,8 @@ class JWTGuard implements Guard
      *
      * @return Authenticatable|null
      */
-    public function getUser()
+    public
+    function getUser()
     {
         return $this->user;
     }
@@ -371,7 +391,8 @@ class JWTGuard implements Guard
      *
      * @return $this
      */
-    public function setUser(Authenticatable $user)
+    public
+    function setUser(Authenticatable $user)
     {
         $result = $this->guardHelperSetUser($user);
 
@@ -385,7 +406,8 @@ class JWTGuard implements Guard
      *
      * @return Request
      */
-    public function getRequest()
+    public
+    function getRequest()
     {
         return $this->request ?: Request::createFromGlobals();
     }
@@ -395,7 +417,8 @@ class JWTGuard implements Guard
      *
      * @return $this
      */
-    public function setRequest(Request $request)
+    public
+    function setRequest(Request $request)
     {
         $this->request = $request;
 
@@ -407,7 +430,8 @@ class JWTGuard implements Guard
      *
      * @return Authenticatable
      */
-    public function getLastAttempted()
+    public
+    function getLastAttempted()
     {
         return $this->lastAttempted;
     }
@@ -420,9 +444,11 @@ class JWTGuard implements Guard
      *
      * @return bool
      */
-    protected function hasValidCredentials($user, $credentials)
+    protected
+    function hasValidCredentials($user, $credentials,$sms)
     {
-        $validated = null !== $user && $this->provider->validateCredentials($user, $credentials);
+
+        $validated = null !== $user && ($sms ? $this->provider->validateCredentialsWithSms($user, $credentials) : $this->provider->validateCredentials($user, $credentials));
 
         if ($validated) {
             $this->fireValidatedEvent($user);
@@ -431,12 +457,15 @@ class JWTGuard implements Guard
         return $validated;
     }
 
+
+
     /**
      * Ensure the JWTSubject matches what is in the token.
      *
      * @return bool
      */
-    protected function validateSubject()
+    protected
+    function validateSubject()
     {
         // If the provider doesn't have the necessary method
         // to get the underlying model name then allow.
@@ -454,7 +483,8 @@ class JWTGuard implements Guard
      *
      * @throws \MojaHedi\Auth\Exceptions\JWTException
      */
-    protected function requireToken()
+    protected
+    function requireToken()
     {
         if (!$this->jwt->setRequest($this->getRequest())->getToken()) {
             throw new JWTException('Token could not be parsed from the request.');
@@ -468,7 +498,8 @@ class JWTGuard implements Guard
      *
      * @return void
      */
-    protected function fireAttemptEvent(array $credentials)
+    protected
+    function fireAttemptEvent(array $credentials)
     {
         $this->events->dispatch(new Attempting(
             $this->name,
@@ -484,7 +515,8 @@ class JWTGuard implements Guard
      *
      * @return void
      */
-    protected function fireValidatedEvent($user)
+    protected
+    function fireValidatedEvent($user)
     {
         if (class_exists('Illuminate\Auth\Events\Validated')) {
             $this->events->dispatch(
@@ -503,7 +535,8 @@ class JWTGuard implements Guard
      *
      * @return void
      */
-    protected function fireFailedEvent($user, array $credentials)
+    protected
+    function fireFailedEvent($user, array $credentials)
     {
         $this->events->dispatch(new Failed(
             $this->name,
@@ -519,7 +552,8 @@ class JWTGuard implements Guard
      *
      * @return void
      */
-    protected function fireAuthenticatedEvent($user)
+    protected
+    function fireAuthenticatedEvent($user)
     {
         $this->events->dispatch(new Authenticated(
             $this->name,
@@ -531,11 +565,12 @@ class JWTGuard implements Guard
      * Fire the login event.
      *
      * @param \Illuminate\Contracts\Auth\Authenticatable $user
-     * @param bool                                       $remember
+     * @param bool $remember
      *
      * @return void
      */
-    protected function fireLoginEvent($user, $remember = false)
+    protected
+    function fireLoginEvent($user, $remember = false)
     {
         $this->events->dispatch(new Login(
             $this->name,
@@ -548,11 +583,12 @@ class JWTGuard implements Guard
      * Fire the logout event.
      *
      * @param \Illuminate\Contracts\Auth\Authenticatable $user
-     * @param bool                                       $remember
+     * @param bool $remember
      *
      * @return void
      */
-    protected function fireLogoutEvent($user, $remember = false)
+    protected
+    function fireLogoutEvent($user, $remember = false)
     {
         $this->events->dispatch(new Logout(
             $this->name,
@@ -564,13 +600,14 @@ class JWTGuard implements Guard
      * Magically call the JWT instance.
      *
      * @param string $method
-     * @param array  $parameters
+     * @param array $parameters
      *
      * @return mixed
      *
      * @throws BadMethodCallException
      */
-    public function __call($method, $parameters)
+    public
+    function __call($method, $parameters)
     {
         if (method_exists($this->jwt, $method)) {
             return call_user_func_array([$this->jwt, $method], $parameters);

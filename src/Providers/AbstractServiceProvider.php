@@ -20,7 +20,7 @@ use MojaHedi\Auth\Contracts\Providers\Auth;
 use MojaHedi\Auth\Contracts\Providers\JWT as JWTContract;
 use MojaHedi\Auth\Contracts\Providers\Storage;
 use MojaHedi\Auth\Factory;
-use MojaHedi\Auth\Http\Auth\LdapAuthProvider;
+use MojaHedi\Auth\Http\Auth\AuthProvider;
 use MojaHedi\Auth\Http\Middleware\Authenticate;
 use MojaHedi\Auth\Http\Middleware\AuthenticateAndRenew;
 use MojaHedi\Auth\Http\Middleware\Check;
@@ -107,6 +107,7 @@ abstract class AbstractServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../../database/migrations/create_ldap_tables.php.stub' => $this->getMigrationFileName('create_ldap_tables.php'),
+            __DIR__.'/../../database/migrations/create_mfa_tables.php.stub' => $this->getMigrationFileName('create_mfa_tables.php'),
         ], 'migrations');
     }
     protected function getMigrationFileName($migrationFileName): string
