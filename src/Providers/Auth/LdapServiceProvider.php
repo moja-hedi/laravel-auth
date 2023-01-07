@@ -2,7 +2,7 @@
 
 namespace MojaHedi\Auth\Providers\Auth;
 
-use MojaHedi\Auth\Http\Auth\LdapAuthProvider;
+use MojaHedi\Auth\Http\Auth\AuthProvider;
 use Illuminate\Support\ServiceProvider;
 
 class LdapServiceProvider extends ServiceProvider
@@ -15,7 +15,7 @@ class LdapServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app['auth']->provider('ldap', function () {
-            return new LdapAuthProvider(config('auth.providers.users.model'));
+            return new AuthProvider(config('auth.providers.users.model'));
         });
     }
 

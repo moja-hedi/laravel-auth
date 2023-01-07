@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5733247a-c485-4203-8c8a-cf3a7d3ec81c" name="Changes" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/src/Ldap/Authentication/ApadanaLdap.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ldap/Authentication/MojaHediLdap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ldap/Constants/ApadanaApplications.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ldap/Constants/MojaHediApplications.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" notifyAboutMissingVendor="false" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -43,7 +42,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="HTML" />
+    <property name="last_opened_file_path" value="/var/www/retail" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -71,7 +71,14 @@
       <workItem from="1671365289262" duration="251000" />
       <workItem from="1671365550362" duration="10000" />
       <workItem from="1671620871750" duration="1068000" />
-      <workItem from="1671622199025" duration="2215000" />
+      <workItem from="1671622199025" duration="3187000" />
+      <workItem from="1671960656190" duration="599000" />
+      <workItem from="1672157939142" duration="823000" />
+      <workItem from="1672465432897" duration="6461000" />
+      <workItem from="1672479242728" duration="4083000" />
+      <workItem from="1672552559591" duration="2827000" />
+      <workItem from="1672569922229" duration="744000" />
+      <workItem from="1672635233490" duration="4563000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670931665033</created>
@@ -115,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671622532836</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="first commit">
+      <created>1671624791135</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671624791135</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

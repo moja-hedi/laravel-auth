@@ -1,0 +1,44 @@
+<?php
+
+
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateMfaTables extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+
+        //Ldap Configuration schema
+        Schema::create('mfa', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->integer('id_user');
+            $table->string('code');
+            $table->timestamp('expired_at');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+
+
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('mfa');
+    }
+
+}
