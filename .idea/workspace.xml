@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5733247a-c485-4203-8c8a-cf3a7d3ec81c" name="Changes" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5733247a-c485-4203-8c8a-cf3a7d3ec81c" name="Changes" comment="Add mfa" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="HTML" />
-    <property name="last_opened_file_path" value="/var/www/retail" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -79,6 +77,7 @@
       <workItem from="1672552559591" duration="2827000" />
       <workItem from="1672569922229" duration="744000" />
       <workItem from="1672635233490" duration="4563000" />
+      <workItem from="1673091579129" duration="251000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670931665033</created>
@@ -129,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671624791135</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add mfa">
+      <created>1673091681966</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673091681966</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +160,7 @@
     <MESSAGE value="fix typo" />
     <MESSAGE value="fix bug in migration" />
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="Add mfa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add mfa" />
   </component>
 </project>

@@ -56,7 +56,7 @@ trait HasMfa
 
     public function message_replace($code, $message)
     {
-        return str_replace(config('mfa.message_separator'), $code, $message);
+        return str_replace('{code}', $code, $message);
     }
 
 
